@@ -1,0 +1,6 @@
+framework module Pods_DemandDriverAdminUITests {
+  umbrella header "Pods-DemandDriverAdminUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

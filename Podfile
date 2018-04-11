@@ -8,6 +8,8 @@ target 'DemandDriverAdmin' do
   # Pods for DemandDriverAdmin
     pod 'Firebase/Core'
     pod 'Firebase/Firestore'
+    pod 'Firebase/Auth'
+
 
 
 

@@ -10,9 +10,7 @@ import UIKit
 
 class requestTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var phoneNumber: UILabel!
-    @IBOutlet weak var cartype: UILabel!
-    @IBOutlet weak var address: UILabel!
+    @IBOutlet weak var UsersUID: UILabel!
     
     
     override func awakeFromNib() {

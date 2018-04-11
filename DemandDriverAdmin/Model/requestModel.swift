@@ -7,12 +7,36 @@
 //
 
 import Foundation
-import FirebaseFirestore
 
-struct requestModels { //Just guessing on the name.  I don't have context.
-    
-    let phoneNumber: String
-    let cartype: String
-    let address: String
-    let hallId: String
+protocol DocumentSerializable  {
+    init?(dictionary:[String:Any])
 }
+
+
+struct requestModel {
+    var UsersUID:String
+    var UID    :String
+   
+    
+    
+    var dictionary:[String:Any] {
+        return [
+            "UsersUID":UsersUID,
+            "UID"     : UID
+          
+            
+        ]
+    }
+    
+}
+
+extension requestModel : DocumentSerializable {
+    init?(dictionary: [String : Any]) {
+        guard let UsersUID = dictionary["UsersUID"] as? String,
+            let UID     = dictionary["UID"] as? String else {return nil}
+        
+        self.init(UsersUID: UsersUID, UID: UID)
+    }
+}
+
+

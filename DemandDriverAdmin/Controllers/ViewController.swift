@@ -14,7 +14,7 @@ import FirebaseAuth
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
   
     var db:Firestore!
-    var requestArray = [requestModel]()
+    var requestArray = [requestUserModel]()
     var bookRequestArray = [String: Any]()
 
 
@@ -62,7 +62,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let storyboard  = UIStoryboard(name: "Main", bundle: nil)
-        let vc          = storyboard.instantiateViewController(withIdentifier: "distanceViewController") as! distanceViewController
+        let vc          = storyboard.instantiateViewController(withIdentifier: "Driverlist") as! DriverlistTVC
         self.navigationController?.pushViewController(vc, animated: true)
         //self.present(vc, animated: true, completion: nil)
     }
@@ -73,7 +73,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func loadData() {
         getFireBaseToken { token in
          
-            self.db.collection("UsersCurrentBooking").getDocuments() { (querySnapshot, err) in
+            self.db.collection("Current_booking").getDocuments() { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
                 } else {
@@ -81,7 +81,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                         print("\(document.documentID) => \(document.data())")
                         let id = document.documentID
                         print("id:::::\(id)")
-                        self.requestArray.append(requestModel(UsersUID: document["UsersUID"] as! String, UID: id))
+                        self.requestArray.append(requestUserModel(UsersUID: document["User_ID"] as! String, UID: id))
                         print("position is::",self.requestArray)
                         
                         DispatchQueue.main.async {
@@ -139,9 +139,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                         completion(idToken ?? "empty")
                         
                     }
-                    
-                    
-                    
                     
                 } else {
                     

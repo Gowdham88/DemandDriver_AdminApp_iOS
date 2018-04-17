@@ -14,14 +14,14 @@ protocol DocumentSerializable  {
 
 
 struct requestModel {
-    var UsersUID:String
+    var Booking_ID:String
     var UID    :String
    
     
     
     var dictionary:[String:Any] {
         return [
-            "UsersUID":UsersUID,
+            "Booking_ID":Booking_ID,
             "UID"     : UID
           
             
@@ -32,10 +32,10 @@ struct requestModel {
 
 extension requestModel : DocumentSerializable {
     init?(dictionary: [String : Any]) {
-        guard let UsersUID = dictionary["UsersUID"] as? String,
+        guard let Booking_ID = dictionary["Booking_ID"] as? String,
             let UID     = dictionary["UID"] as? String else {return nil}
         
-        self.init(UsersUID: UsersUID, UID: UID)
+        self.init(Booking_ID: Booking_ID, UID: UID)
     }
 }
 

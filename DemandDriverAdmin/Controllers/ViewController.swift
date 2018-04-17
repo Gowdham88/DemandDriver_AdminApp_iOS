@@ -11,18 +11,21 @@ import Firebase
 import FirebaseFirestore
 import FirebaseAuth
 
+public var bookingID = String()
+
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
   
     var db:Firestore!
     var requestArray = [requestModel]()
-    var bookRequestArray = [String: Any]()
-
+    var bookRequestArray = [String]()
+    var doc_ID :String = ""
 
     @IBOutlet weak var requestTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         db = Firestore.firestore()
-        loadData()
+//        loadData()
+        loadDoc()
 
     }//viewdidload
 
@@ -42,19 +45,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return requestArray.count
+        return bookRequestArray.count
     }
     
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = requestTableView.dequeueReusableCell(withIdentifier: "requestTableViewCell", for: indexPath) as! requestTableViewCell
 
-        let requests = requestArray[indexPath.row]
+        let requests = bookRequestArray[indexPath.row]
         
         print("requests::::\(requests)")
         
-        cell.UsersUID?.text = "\(requests.UsersUID)"
-        
+        cell.UsersUID?.text = bookRequestArray[indexPath.row]
+
+       
         
         return cell
     }
@@ -70,32 +74,67 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
   
     // Table View end
     
-    func loadData() {
+//    func loadData() {
+//        getFireBaseToken { token in
+//
+//            self.db.collection("UsersCurrentBooking").getDocuments() { (querySnapshot, err) in
+//                if let err = err {
+//                    print("Error getting documents: \(err)")
+//                } else {
+//                    for document in querySnapshot!.documents {
+//                        print("\(document.documentID) => \(document.data())")
+//                        let id = document.documentID
+//                        print("id:::::\(id)")
+//                        self.requestArray.append(requestModel(UsersUID: document["UsersUID"] as! String, UID: id))
+//                        print("position is::",self.requestArray)
+//
+//                        DispatchQueue.main.async {
+//                            self.requestTableView.reloadData()
+//
+//                        }
+//                    }
+//                }
+//            }
+//
+//      }//get firebase token
+//
+//    }//loadData
+    
+    func loadDoc() {
+        
         getFireBaseToken { token in
-         
-            self.db.collection("UsersCurrentBooking").getDocuments() { (querySnapshot, err) in
-                if let err = err {
-                    print("Error getting documents: \(err)")
-                } else {
-                    for document in querySnapshot!.documents {
-                        print("\(document.documentID) => \(document.data())")
-                        let id = document.documentID
-                        print("id:::::\(id)")
-                        self.requestArray.append(requestModel(UsersUID: document["UsersUID"] as! String, UID: id))
-                        print("position is::",self.requestArray)
-                        
+    
+            
+                self.db.collection("Current_booking").getDocuments() { (querySnapshot, err) in
+                    if let err = err {
+                        print("Error getting documents: \(err)")
+                    } else {
+                        for document in querySnapshot!.documents {
+                            print("document::::::::::\(document.documentID) => \(document.data())")
+                            self.bookRequestArray.append(document.documentID)
+                            print("doc::::\(self.bookRequestArray)")
+                        }
                         DispatchQueue.main.async {
+                            
                             self.requestTableView.reloadData()
                             
                         }
                     }
                 }
-            }
-         
-      }//get firebase token
+
+
+        }//get firebase token
         
-    }//loadData
+    }//loadDoc
     
+    func loadDriverDoc(){
+        
+        self.db.collection("Driver_details").getDocuments { (querySnapshot, err) in
+            <#code#>
+        }
+        
+        
+    }
     
     
     //Anonymously user login

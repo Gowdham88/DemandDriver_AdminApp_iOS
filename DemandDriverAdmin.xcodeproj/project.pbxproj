@@ -20,10 +20,11 @@
 		AE3366E2207B7E4700B049ED /* requestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3366E1207B7E4700B049ED /* requestTableViewCell.swift */; };
 		AE3366EA207B80AC00B049ED /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AE3366E9207B80AC00B049ED /* GoogleService-Info.plist */; };
 		AE3366EC207B874C00B049ED /* requestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3366EB207B874C00B049ED /* requestModel.swift */; };
+		AE7D269C20874B1600E3645F /* DriverModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7D269B20874B1600E3645F /* DriverModel.swift */; };
+		AE7D269E2087587D00E3645F /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7D269D2087587D00E3645F /* UserModel.swift */; };
 		AE7E6B7D207CBE9B00A3D874 /* ExpandableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7E6B7C207CBE9B00A3D874 /* ExpandableHeaderView.swift */; };
 		AE7E6B81207CC18A00A3D874 /* distanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7E6B80207CC18A00A3D874 /* distanceViewController.swift */; };
 		AE7E6B85207CC2D000A3D874 /* distanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7E6B84207CC2D000A3D874 /* distanceTableViewCell.swift */; };
-		AE8390AC2085EBAF00B3F330 /* DriverListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8390AB2085EBAF00B3F330 /* DriverListViewController.swift */; };
 		AE8390AE2085EBDA00B3F330 /* DriverListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8390AD2085EBDA00B3F330 /* DriverListTableViewCell.swift */; };
 		AE8390B02085EC7300B3F330 /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8390AF2085EC7300B3F330 /* UserRequest.swift */; };
 /* End PBXBuildFile section */
@@ -69,10 +70,11 @@
 		AE3366E1207B7E4700B049ED /* requestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = requestTableViewCell.swift; sourceTree = "<group>"; };
 		AE3366E9207B80AC00B049ED /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AE3366EB207B874C00B049ED /* requestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = requestModel.swift; sourceTree = "<group>"; };
+		AE7D269B20874B1600E3645F /* DriverModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverModel.swift; sourceTree = "<group>"; };
+		AE7D269D2087587D00E3645F /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		AE7E6B7C207CBE9B00A3D874 /* ExpandableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableHeaderView.swift; sourceTree = "<group>"; };
 		AE7E6B80207CC18A00A3D874 /* distanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = distanceViewController.swift; sourceTree = "<group>"; };
 		AE7E6B84207CC2D000A3D874 /* distanceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = distanceTableViewCell.swift; sourceTree = "<group>"; };
-		AE8390AB2085EBAF00B3F330 /* DriverListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverListViewController.swift; sourceTree = "<group>"; };
 		AE8390AD2085EBDA00B3F330 /* DriverListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverListTableViewCell.swift; sourceTree = "<group>"; };
 		AE8390AF2085EC7300B3F330 /* UserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
 		B266F75BFFA19B180E3BD625 /* Pods_DemandDriverAdminTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemandDriverAdminTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,6 +168,8 @@
 			children = (
 				AE3366EB207B874C00B049ED /* requestModel.swift */,
 				AE8390AF2085EC7300B3F330 /* UserRequest.swift */,
+				AE7D269B20874B1600E3645F /* DriverModel.swift */,
+				AE7D269D2087587D00E3645F /* UserModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -173,7 +177,6 @@
 		AE3366E4207B7E4F00B049ED /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				AE8390AB2085EBAF00B3F330 /* DriverListViewController.swift */,
 				AE3366B3207B6FB900B049ED /* ViewController.swift */,
 				AE7E6B80207CC18A00A3D874 /* distanceViewController.swift */,
 			);
@@ -469,8 +472,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE8390AC2085EBAF00B3F330 /* DriverListViewController.swift in Sources */,
 				AE3366B4207B6FB900B049ED /* ViewController.swift in Sources */,
+				AE7D269C20874B1600E3645F /* DriverModel.swift in Sources */,
 				AE8390B02085EC7300B3F330 /* UserRequest.swift in Sources */,
 				AE7E6B81207CC18A00A3D874 /* distanceViewController.swift in Sources */,
 				AE3366E2207B7E4700B049ED /* requestTableViewCell.swift in Sources */,
@@ -478,6 +481,7 @@
 				AE7E6B85207CC2D000A3D874 /* distanceTableViewCell.swift in Sources */,
 				AE3366B2207B6FB900B049ED /* AppDelegate.swift in Sources */,
 				AE3366EC207B874C00B049ED /* requestModel.swift in Sources */,
+				AE7D269E2087587D00E3645F /* UserModel.swift in Sources */,
 				AE8390AE2085EBDA00B3F330 /* DriverListTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

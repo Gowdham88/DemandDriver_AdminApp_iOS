@@ -10,6 +10,7 @@ import UIKit
 
 class distanceTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var call: UIButton!
     @IBOutlet weak var distancelabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()

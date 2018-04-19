@@ -10,6 +10,7 @@
 		3FA90FC69661F4D66C8E08B2 /* Pods_DemandDriverAdmin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07905753FB67E62CDC3EF0E5 /* Pods_DemandDriverAdmin.framework */; };
 		7F88FC4F4A0FDF1DCB04B943 /* Pods_DemandDriverAdminUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3B5AD36DAF36A9A7BC9504F /* Pods_DemandDriverAdminUITests.framework */; };
 		ABC5A67FEDDBBF9372E0613C /* Pods_DemandDriverAdminTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B266F75BFFA19B180E3BD625 /* Pods_DemandDriverAdminTests.framework */; };
+		AE30CB9920884C2D00EDDDFF /* driverBookingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE30CB9820884C2D00EDDDFF /* driverBookingModel.swift */; };
 		AE3366B2207B6FB900B049ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3366B1207B6FB900B049ED /* AppDelegate.swift */; };
 		AE3366B4207B6FB900B049ED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3366B3207B6FB900B049ED /* ViewController.swift */; };
 		AE3366B7207B6FB900B049ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE3366B5207B6FB900B049ED /* Main.storyboard */; };
@@ -54,6 +55,7 @@
 		61DFCB1FA9417070379B0D20 /* Pods-DemandDriverAdmin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemandDriverAdmin.release.xcconfig"; path = "Pods/Target Support Files/Pods-DemandDriverAdmin/Pods-DemandDriverAdmin.release.xcconfig"; sourceTree = "<group>"; };
 		A3B5AD36DAF36A9A7BC9504F /* Pods_DemandDriverAdminUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemandDriverAdminUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD5DCF61229114AE7E86F132 /* Pods-DemandDriverAdminTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemandDriverAdminTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DemandDriverAdminTests/Pods-DemandDriverAdminTests.debug.xcconfig"; sourceTree = "<group>"; };
+		AE30CB9820884C2D00EDDDFF /* driverBookingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = driverBookingModel.swift; sourceTree = "<group>"; };
 		AE3366AE207B6FB900B049ED /* DemandDriverAdmin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemandDriverAdmin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE3366B1207B6FB900B049ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE3366B3207B6FB900B049ED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				AE8390AF2085EC7300B3F330 /* UserRequest.swift */,
 				AE7D269B20874B1600E3645F /* DriverModel.swift */,
 				AE7D269D2087587D00E3645F /* UserModel.swift */,
+				AE30CB9820884C2D00EDDDFF /* driverBookingModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -477,6 +480,7 @@
 				AE8390B02085EC7300B3F330 /* UserRequest.swift in Sources */,
 				AE7E6B81207CC18A00A3D874 /* distanceViewController.swift in Sources */,
 				AE3366E2207B7E4700B049ED /* requestTableViewCell.swift in Sources */,
+				AE30CB9920884C2D00EDDDFF /* driverBookingModel.swift in Sources */,
 				AE7E6B7D207CBE9B00A3D874 /* ExpandableHeaderView.swift in Sources */,
 				AE7E6B85207CC2D000A3D874 /* distanceTableViewCell.swift in Sources */,
 				AE3366B2207B6FB900B049ED /* AppDelegate.swift in Sources */,

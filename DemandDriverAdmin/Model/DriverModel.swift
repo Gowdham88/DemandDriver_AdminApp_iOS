@@ -16,14 +16,16 @@ struct DriverModel {
     var Driver_Long         : String
     var Driver_Phone_number : String
     var Driver_ID           : String
+    var driverToken         : String
     
-    init(Car_type       : String,Driver_Lat     :String,Driver_Long    : String, Driver_Phone_number: String, Driver_ID: String) {
+    init(Car_type       : String,Driver_Lat     :String,Driver_Long    : String, Driver_Phone_number: String, Driver_ID: String, driverToken: String) {
         
         self.Car_type            = Car_type
         self.Driver_Lat          = Driver_Lat
         self.Driver_Long         = Driver_Long
         self.Driver_Phone_number = Driver_Phone_number
-        self.Driver_ID = Driver_ID
+        self.Driver_ID           = Driver_ID
+        self.driverToken         = driverToken
     }
    
 }

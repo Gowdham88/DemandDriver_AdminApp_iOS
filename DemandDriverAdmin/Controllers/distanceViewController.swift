@@ -23,11 +23,13 @@ class distanceViewController: UIViewController, UITableViewDelegate, UITableView
     var bookRequestArray      = [String: Any]()
     var booking_ID            = bookingID
     var driverArray           = [DriverModel]()
+    var Driver_Booking_Array  = [driverBookingModel]()
+    var UserArray             = [UserModel]()
+
   
-    var LatLong: String       = ""
-    var Start_Lat:String      = ""
-    var Start_Long:String     = ""
-    
+    var LatLong               : String = ""
+    var Start_Lat             : String = ""
+    var Start_Long            : String = ""
     var doc_ID                : String = ""
     var Driver_ID             : String = ""
     var Driver_Lat            : String = ""
@@ -35,6 +37,11 @@ class distanceViewController: UIViewController, UITableViewDelegate, UITableView
     var Car_Type              : String = ""
     var Driver_Phone_number   : String = ""
     var User_Booking_ID       : String = ""
+    var Driver_Booking_ID     : String = ""
+    var driver_UID            : String = ""
+    var CheckBookID           : String = ""
+    var driverToken           : String = ""
+    var Request               : String = "Approved"
     var timer                 : Timer!
 
     
@@ -43,7 +50,6 @@ class distanceViewController: UIViewController, UITableViewDelegate, UITableView
     var nearestLoaction       : CLLocationDistance?
     
     
-//    var refreshControl: UIRefreshControl!
     
     @IBOutlet weak var distance: UITableView!
     
@@ -51,7 +57,7 @@ class distanceViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         
         db = Firestore.firestore()
-       loadDriverDoc()
+        loadDriverDoc()
         self.distance.addSubview(self.refreshControl)
 
         
@@ -59,7 +65,6 @@ class distanceViewController: UIViewController, UITableViewDelegate, UITableView
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     
@@ -139,7 +144,9 @@ class distanceViewController: UIViewController, UITableViewDelegate, UITableView
         }
       
     }
+
     
+
     
     func loadDriverDoc(){
         
@@ -157,9 +164,12 @@ class distanceViewController: UIViewController, UITableViewDelegate, UITableView
                     print("Driver_ID::::\(String(describing: Driver_ID))")
                     self.Driver_ID = Driver_ID!
                     
-                    let Driver_lat = document.data()["Driver_Lat"] as? String
-                    print("Driver_lat:::::\(String(describing: Driver_lat))")
-                    self.Driver_Lat = Driver_lat!
+                   if let Driver_lat = document.data()["Driver_Lat"] as? String {
+                        
+                        print("Driver_lat:::::\(String(describing: Driver_lat))")
+                        self.Driver_Lat = Driver_lat
+                    }
+                    
                     let Driver_long = document.data()["Driver_Long"] as? String
                     print("Driver_long:::::\(String(describing: Driver_long))")
                     self.Driver_Long = Driver_long!
@@ -167,12 +177,14 @@ class distanceViewController: UIViewController, UITableViewDelegate, UITableView
                     print("Driver_car:::::\(String(describing: car))")
                     self.Car_Type = car!
                     let Phone_number = document.data()["Driver_Phone_number"] as? String
-                    print("Driver_phone_number:::::\(String(describing: car))")
+                    print("Driver_phone_number:::::\(String(describing: Phone_number))")
                     self.Driver_Phone_number = Phone_number!
                     
+                    let driverToken = document.data()["driverToken"] as? String
+                    print("Driver_phone_number:::::\(String(describing: driverToken))")
+                    self.driverToken = driverToken!
                     
-                    
-                    let item = DriverModel(Car_type: self.Car_Type, Driver_Lat: self.Driver_Lat, Driver_Long: self.Driver_Long, Driver_Phone_number: self.Driver_Phone_number, Driver_ID: self.Driver_ID)
+                    let item = DriverModel(Car_type: self.Car_Type, Driver_Lat: self.Driver_Lat, Driver_Long: self.Driver_Long, Driver_Phone_number: self.Driver_Phone_number, Driver_ID: self.Driver_ID, driverToken: self.driverToken)
 //                    self.driverArray.append(item)
                     self.DistanceCal(lat: self.Driver_Lat, long: self.Driver_Long, item: item)
                     
@@ -189,12 +201,16 @@ class distanceViewController: UIViewController, UITableViewDelegate, UITableView
         }
         
         
-    }
+    }//loadDriverDoc
     
     func DistanceCal(lat : String,long : String,item : DriverModel) {
         
         DriverLocation = CLLocation(latitude: Double(lat)!, longitude: Double(long)!)
+        print("long::::::\(String(describing: Double(Start_Long)))")
+        print("lat::::::\(String(describing: Double(Start_Lat)))")
+
         userLocation   = CLLocation(latitude: Double(Start_Lat)!, longitude: Double(Start_Long)!)
+        print("userlocatio:::::\(String(describing: userLocation))")
         
         //this is the distance between driverLocation and startLocation (in km)
         let distance = (DriverLocation?.distance(from: userLocation!))!
@@ -214,8 +230,10 @@ class distanceViewController: UIViewController, UITableViewDelegate, UITableView
     func statusApprove() {
         
         db.collection("Current_booking").document(User_Booking_ID).updateData([
-            "Driver_ID": Driver_ID,
-            "Driver_Phone_number": Driver_Phone_number
+            "Driver_ID"          : Driver_ID,
+            "Driver_Phone_number": Driver_Phone_number,
+            "driverToken"        : driverToken,
+            "Request"            : Request
             
         ]) { err in
             if let err = err {
@@ -225,8 +243,9 @@ class distanceViewController: UIViewController, UITableViewDelegate, UITableView
             }
         }
         
-    }
+    }//statusApprove()
     
+   
     
 
 }//class

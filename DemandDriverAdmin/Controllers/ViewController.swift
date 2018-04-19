@@ -17,7 +17,6 @@ public var bookingID = String()
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
   
     var db:Firestore!
-//    var userRequestArray = [UserRequest]()
     var requestArray     = [requestModel]()
     var bookRequestArray = [String]()
     var DriverArray      = [String]()

@@ -134,17 +134,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                             
                             print("doc::::\(self.bookRequestArray)")
                             
-                            let User_Booking_ID = document.data()["User_Booking_ID"] as? String
+                            if let User_Booking_ID = document.data()["User_Booking_ID"] as? String {
                             print("User_Booking_ID::::::\(String(describing: User_Booking_ID))")
-                            self.User_Booking_ID = User_Booking_ID!
+                            self.User_Booking_ID = User_Booking_ID
+                            }
                             
-                            let Start_lat = document.data()["Start_Lat"] as? String
+                            if let Start_lat = document.data()["Start_Lat"] as? String {
                             print("Start_lat::::::\(String(describing: Start_lat))")
-                            self.Start_Lat = Start_lat!
+                            self.Start_Lat = Start_lat
+                            }
                             
-                            let Start_long = document.data()["Start_Long"] as? String
+                            if let Start_long = document.data()["Start_Long"] as? String {
                             print("Start_long::::::\(String(describing: Start_long))")
-                            self.Start_Long = Start_long!
+                            self.Start_Long = Start_long
+                            }
                             
                            let items = UserModel(User_Booking_ID: self.User_Booking_ID, Start_Lat: self.Start_Lat, Start_Long: self.Start_Long)
 //                            self.DistanceCal(lat: self.Start_Lat, long: self.Start_Long, item: items)

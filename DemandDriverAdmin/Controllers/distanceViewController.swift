@@ -42,6 +42,7 @@ class distanceViewController: UIViewController, UITableViewDelegate, UITableView
     var CheckBookID           : String = ""
     var driverToken           : String = ""
     var Request               : String = "Approved"
+    var Driver_name : String = ""
     var timer                 : Timer!
 
     
@@ -163,7 +164,7 @@ class distanceViewController: UIViewController, UITableViewDelegate, UITableView
                     let Driver_ID = document.data()["Driver_ID"] as? String
                     print("Driver_ID::::\(String(describing: Driver_ID))")
                     self.Driver_ID = Driver_ID!
-                    
+            //nil handled.
                    if let Driver_lat = document.data()["Driver_Lat"] as? String {
                         
                         print("Driver_lat:::::\(String(describing: Driver_lat))")
@@ -183,8 +184,10 @@ class distanceViewController: UIViewController, UITableViewDelegate, UITableView
                     let driverToken = document.data()["driverToken"] as? String
                     print("Driver_phone_number:::::\(String(describing: driverToken))")
                     self.driverToken = driverToken!
-                    
-                    let item = DriverModel(Car_type: self.Car_Type, Driver_Lat: self.Driver_Lat, Driver_Long: self.Driver_Long, Driver_Phone_number: self.Driver_Phone_number, Driver_ID: self.Driver_ID, driverToken: self.driverToken)
+                    let Driver_name = document.data()["Driver_name"] as? String
+                    print("Driver_name:::::\(String(describing: Driver_name))")
+                    self.Driver_name = Driver_name!
+                    let item = DriverModel(Car_type: self.Car_Type, Driver_Lat: self.Driver_Lat, Driver_Long: self.Driver_Long, Driver_Phone_number: self.Driver_Phone_number, Driver_ID: self.Driver_ID, driverToken: self.driverToken, Driver_name: self.Driver_name)
 //                    self.driverArray.append(item)
                     self.DistanceCal(lat: self.Driver_Lat, long: self.Driver_Long, item: item)
                     
@@ -233,7 +236,8 @@ class distanceViewController: UIViewController, UITableViewDelegate, UITableView
             "Driver_ID"          : Driver_ID,
             "Driver_Phone_number": Driver_Phone_number,
             "driverToken"        : driverToken,
-            "Request"            : Request
+            "Request"            : Request,
+            "Driver_name"        : Driver_name
             
         ]) { err in
             if let err = err {

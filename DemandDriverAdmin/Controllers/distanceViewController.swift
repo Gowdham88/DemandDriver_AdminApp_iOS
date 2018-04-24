@@ -122,7 +122,7 @@ class distanceViewController: UIViewController, UITableViewDelegate, UITableView
         let approveAction = UITableViewRowAction(style: .destructive, title: "Approve") { (action, indexPath) in
             // Approve item at indexPath
             
-            self.statusApprove()
+            self.statusApprove(index: indexPath.row)
             
         }
         
@@ -247,23 +247,26 @@ class distanceViewController: UIViewController, UITableViewDelegate, UITableView
     }//DistanceCal
   
     
-    func statusApprove() {
+    func statusApprove(index: Int) {
         
         db.collection("Current_booking").document(User_Booking_ID).updateData([
-            "Driver_ID"          : Driver_ID,
-            "Driver_Phone_number": Driver_Phone_number,
-            "driverToken"        : driverToken,
+            "Driver_ID"          : driverArray[index].Driver_ID,
+            "Driver_Phone_number": driverArray[index].Driver_Phone_number,
+            "driverToken"        : driverArray[index].driverToken,
             "Request"            : Request,
-            "Driver_name"        : Driver_name
+            "Driver_name"        : driverArray[index].Driver_name
             
         ]) { err in
             if let err = err {
                 print("Error writing document: \(err)")
             } else {
                 print("Document successfully written!")
+                print("driveriD:::::\(self.driverArray[index].Driver_ID)")
+                print("driverPhoneNumber:::::\(self.driverArray[index].Driver_Phone_number)")
+                print("driverName:::::\(self.driverArray[index].Driver_name)")
             }
         }
-        
+    
     }//statusApprove()
     
    

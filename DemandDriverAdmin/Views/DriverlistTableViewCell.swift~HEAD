@@ -1,17 +1,24 @@
 //
-//  distanceTableViewCell.swift
+//  DriverlistTableViewCell.swift
 //  DemandDriverAdmin
 //
-//  Created by CZSM2 on 10/04/18.
+//  Created by Gowdhaman on 13/04/18.
 //  Copyright © 2018 CZSM2. All rights reserved.
 //
 
 import UIKit
 
-class distanceTableViewCell: UITableViewCell {
+class DriverlistTableViewCell: UITableViewCell {
 
+<<<<<<< HEAD:DemandDriverAdmin/Views/DriverlistTableViewCell.swift
+    @IBOutlet var driverName: UILabel!
+    @IBOutlet var driverphoneNumber: UILabel!
+    @IBOutlet var driverDistance: UILabel!
+    
+=======
     @IBOutlet weak var call: UIButton!
     @IBOutlet weak var distancelabel: UILabel!
+>>>>>>> 52928be0772fa33ecf8a59f180d6f854782c0b6f:DemandDriverAdmin/Views/distanceTableViewCell.swift
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
